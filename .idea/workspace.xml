@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14ba99f2-d85c-4220-9ca4-dfe39f45eb75" name="Changes" comment="add hibernate xml file and libraries">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageCustomersFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageCustomersFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/manage-customers-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/manage-customers-form.fxml" afterDir="false" />
-    </list>
+    <list default="true" id="14ba99f2-d85c-4220-9ca4-dfe39f45eb75" name="Changes" comment="implement session facotry embedded class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,9 +13,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="CSS File" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -125,7 +121,7 @@
       <workItem from="1691495604849" duration="492000" />
       <workItem from="1691723933425" duration="6646000" />
       <workItem from="1691750619981" duration="1409000" />
-      <workItem from="1691752313850" duration="5889000" />
+      <workItem from="1691752313850" duration="6247000" />
     </task>
     <task id="LOCAL-00001" summary="add hibernate xml file and libraries">
       <created>1691760960831</created>
@@ -134,7 +130,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691760960831</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="implement session facotry embedded class">
+      <created>1691761923779</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1691761923779</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -153,7 +156,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add hibernate xml file and libraries" />
-    <option name="LAST_COMMIT_MESSAGE" value="add hibernate xml file and libraries" />
+    <MESSAGE value="implement session facotry embedded class" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement session facotry embedded class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
