@@ -16,25 +16,25 @@ public class CustomerRepository {
                 .getSession();
     }
 
-    public int saveCustomer(Customer customer) {
+    public boolean saveCustomer(Customer customer) {
         Transaction transaction = session.beginTransaction();
         try {
             int customerId = (int) session.save(customer);
             transaction.commit();
-            session.close();
-            return customerId;
+            //session.close();
+            return true;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
+            //session.close();
             e.printStackTrace();
-            return -1;
+            return false;
         }
     }
 
     public Customer getCustomer(int id) {
         try {
             Customer customer = session.get(Customer.class, id);
-            session.close();
+            //session.close();
             return customer;
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,11 +47,11 @@ public class CustomerRepository {
         try {
             session.update(customer);
             transaction.commit();
-            session.close();
+            //session.close();
             return true;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
+            //session.close();
             e.printStackTrace();
             return false;
         }
@@ -62,11 +62,11 @@ public class CustomerRepository {
         try {
             session.delete(customer);
             transaction.commit();
-            session.close();
+            //session.close();
             return true;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
+            //session.close();
             e.printStackTrace();
             return false;
         }

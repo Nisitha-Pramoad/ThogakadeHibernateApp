@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14ba99f2-d85c-4220-9ca4-dfe39f45eb75" name="Changes" comment="implement save customer function">
+    <list default="true" id="14ba99f2-d85c-4220-9ca4-dfe39f45eb75" name="Changes" comment="fix user input null value error">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageCustomersFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageCustomersFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/repository/CustomerRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/manage-customers-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/manage-customers-form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +132,7 @@
       <workItem from="1691723933425" duration="6646000" />
       <workItem from="1691750619981" duration="1409000" />
       <workItem from="1691752313850" duration="7998000" />
-      <workItem from="1691766039060" duration="4181000" />
+      <workItem from="1691766039060" duration="9126000" />
     </task>
     <task id="LOCAL-00001" summary="add hibernate xml file and libraries">
       <created>1691760960831</created>
@@ -168,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691763688070</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fix user input null value error">
+      <created>1691770647056</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1691770647056</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,18 +199,8 @@
     <MESSAGE value="implement address embedded class" />
     <MESSAGE value="implement CustomerRepository class" />
     <MESSAGE value="implement save customer function" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement save customer function" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageCustomersFormController.java</url>
-          <line>130</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="fix user input null value error" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix user input null value error" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

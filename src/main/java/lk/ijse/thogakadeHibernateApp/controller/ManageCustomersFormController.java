@@ -9,10 +9,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -25,12 +24,15 @@ import lk.ijse.thogakadeHibernateApp.repository.CustomerRepository;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
 
 public class ManageCustomersFormController implements Initializable {
+    @FXML
+    public TextField txtCustomerId;
     @FXML
     public AnchorPane root;
     @FXML
@@ -58,6 +60,8 @@ public class ManageCustomersFormController implements Initializable {
     @FXML
     public ComboBox mobileNumberType;
 
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         ObservableList<String> mobileNoTypeList = FXCollections.observableArrayList(
@@ -84,8 +88,14 @@ public class ManageCustomersFormController implements Initializable {
         Customer customer = getCustomer();
 
         CustomerRepository customerRepository = new CustomerRepository();
-        int savedCusId = customerRepository.saveCustomer(customer);
+        boolean savedCusId = customerRepository.saveCustomer(customer);
         System.out.println("Saved Cus Id: " + savedCusId);
+
+        if (savedCusId) {
+            new Alert(Alert.AlertType.INFORMATION, "Customer has been saved successfully").show();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Customer has not been saved successfully").show();
+        }
     }
 
     @FXML
@@ -95,8 +105,40 @@ public class ManageCustomersFormController implements Initializable {
 
     @FXML
     public void btnUpdate_OnAction(ActionEvent actionEvent) {
+        int cusId = Integer.parseInt(txtCustomerId.getText());
 
+        // Get the existing customer from the database
+        CustomerRepository cusRepository = new CustomerRepository();
+        Customer existingCustomer = cusRepository.getCustomer(cusId);
+
+        if (existingCustomer != null) {
+            // Update customer's name
+            NameIdentifier updatedName = getNameIdentifier();
+            existingCustomer.setNameIdentifier(updatedName);
+
+            // Update customer's address
+            Address updatedAddress = getAddress();
+            existingCustomer.setCustomerAddress(updatedAddress);
+
+            // Update customer's mobile number
+            List<MobileNo> updatedMobileNos = getMobileNos();
+            existingCustomer.setPhoneNos(updatedMobileNos);
+
+            // Perform the update operation
+            boolean isUpdated = cusRepository.updateCustomer(existingCustomer);
+            if (isUpdated) {
+                System.out.println("Customer Updated!");
+                new Alert(Alert.AlertType.INFORMATION, "Customer has been updated successfully").show();
+            } else {
+                System.out.println("Customer Update Failed!");
+                new Alert(Alert.AlertType.ERROR, "Customer update has failed").show();
+            }
+        } else {
+            System.out.println("Customer not found!");
+            new Alert(Alert.AlertType.WARNING, "Customer not found").show();
+        }
     }
+
 
     private Customer getCustomer() {
         Customer customer = new Customer();
@@ -148,6 +190,9 @@ public class ManageCustomersFormController implements Initializable {
         address.setAddressLine2(addressline2);
         return address;
     }
+
+
+
 
 
 }

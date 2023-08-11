@@ -2,8 +2,6 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -34,22 +32,14 @@
                </stops>
             </LinearGradient>
          </fill></Rectangle>
-      <TextField fx:id="txtCustomerFirstName" layoutX="44.0" layoutY="179.0" prefHeight="25.0" prefWidth="153.0" promptText="first name" />
-      <TextField fx:id="txtCustomerAddressLine1" layoutX="44.0" layoutY="228.0" prefHeight="25.0" prefWidth="253.0" promptText="address line 1" />
-      <TextField fx:id="txtCustomerMiddleName" layoutX="251.0" layoutY="179.0" prefHeight="25.0" prefWidth="153.0" promptText="middle name" />
-      <TextField fx:id="txtCustomerLastName" layoutX="458.0" layoutY="179.0" prefHeight="25.0" prefWidth="153.0" promptText="last name" />
-      <TextField fx:id="txtCustomerAddressLine2" layoutX="351.0" layoutY="228.0" prefHeight="25.0" prefWidth="260.0" promptText="address line 2" />
-      <Button fx:id="btnsave" layoutX="182.0" layoutY="328.0" mnemonicParsing="false" onAction="#btnSave_OnAction" prefHeight="28.0" prefWidth="74.0" text="Save" />
-      <Button fx:id="btnupdate" layoutX="291.0" layoutY="328.0" mnemonicParsing="false" onAction="#btnUpdate_OnAction" prefHeight="28.0" prefWidth="74.0" text="Update" />
-      <Button fx:id="btndelete" layoutX="396.0" layoutY="328.0" mnemonicParsing="false" onAction="#btnDelete_OnAction" prefHeight="28.0" prefWidth="74.0" text="Delete" />
-      <TableView fx:id="tblCustomers" layoutX="44.0" layoutY="409.0" prefHeight="165.0" prefWidth="567.0">
-        <columns>
-          <TableColumn prefWidth="103.0" text="Id" />
-          <TableColumn prefWidth="140.0" text="Name" />
-            <TableColumn prefWidth="194.0" text="Customer Address" />
-            <TableColumn prefWidth="129.0" text="Phone Number" />
-        </columns>
-      </TableView>
+      <TextField fx:id="txtCustomerFirstName" layoutX="45.0" layoutY="236.0" prefHeight="25.0" prefWidth="153.0" promptText="first name" />
+      <TextField fx:id="txtCustomerAddressLine1" layoutX="45.0" layoutY="288.0" prefHeight="25.0" prefWidth="253.0" promptText="address line 1" />
+      <TextField fx:id="txtCustomerMiddleName" layoutX="252.0" layoutY="236.0" prefHeight="25.0" prefWidth="153.0" promptText="middle name" />
+      <TextField fx:id="txtCustomerLastName" layoutX="459.0" layoutY="236.0" prefHeight="25.0" prefWidth="153.0" promptText="last name" />
+      <TextField fx:id="txtCustomerAddressLine2" layoutX="352.0" layoutY="288.0" prefHeight="25.0" prefWidth="260.0" promptText="address line 2" />
+      <Button fx:id="btnsave" layoutX="183.0" layoutY="439.0" mnemonicParsing="false" onAction="#btnSave_OnAction" prefHeight="28.0" prefWidth="74.0" text="Save" />
+      <Button fx:id="btnupdate" layoutX="291.0" layoutY="439.0" mnemonicParsing="false" onAction="#btnUpdate_OnAction" prefHeight="28.0" prefWidth="74.0" text="Update" />
+      <Button fx:id="btndelete" layoutX="396.0" layoutY="439.0" mnemonicParsing="false" onAction="#btnDelete_OnAction" prefHeight="28.0" prefWidth="74.0" text="Delete" />
       <ImageView fx:id="imgHome" fitHeight="56.0" fitWidth="65.0" layoutX="44.0" layoutY="40.0" onMouseClicked="#navigateToHome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@assests/images/home.png" />
@@ -60,10 +50,30 @@
             <Font size="24.0" />
          </font>
       </Text>
-      <Text layoutX="44.0" layoutY="175.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name :" />
-      <Text layoutX="44.0" layoutY="224.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Address :" />
-      <TextField fx:id="txtCustomerMobile" layoutX="132.0" layoutY="281.0" prefHeight="25.0" prefWidth="253.0" promptText="number" />
-      <Text layoutX="44.0" layoutY="277.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Phone Number :" />
-      <ComboBox fx:id="mobileNumberType" layoutX="44.0" layoutY="281.0" prefHeight="25.0" prefWidth="74.0" promptText="Type" />
+      <Text layoutX="45.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Name :" />
+      <Text layoutX="45.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Address :" />
+      <TextField fx:id="txtCustomerMobile" layoutX="133.0" layoutY="344.0" prefHeight="25.0" prefWidth="253.0" promptText="number" />
+      <Text layoutX="45.0" layoutY="340.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Phone Number :" />
+      <ComboBox fx:id="mobileNumberType" layoutX="45.0" layoutY="344.0" prefHeight="25.0" prefWidth="74.0" promptText="Type" />
+      <TextField fx:id="txtCustomerId" layoutX="45.0" layoutY="184.0" prefHeight="25.0" prefWidth="562.0" promptText="id" />
+      <Text layoutX="45.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Id:" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="113.0" layoutY="498.0" strokeType="INSIDE" strokeWidth="0.0" width="654.0">
+         <fill>
+            <LinearGradient endX="0.7393364928909953" endY="0.4075829383886256" startX="0.7488151658767772" startY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.6235294342041016" green="0.7803921699523926" blue="0.2862745225429535" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
    </children>
 </AnchorPane>
