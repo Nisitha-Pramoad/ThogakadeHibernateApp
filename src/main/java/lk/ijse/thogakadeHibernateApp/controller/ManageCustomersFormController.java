@@ -27,6 +27,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 
@@ -100,8 +101,37 @@ public class ManageCustomersFormController implements Initializable {
 
     @FXML
     public void btnDelete_OnAction(ActionEvent actionEvent) {
+        int cusId = Integer.parseInt(txtCustomerId.getText());
 
+        // Get the existing customer from the database
+        CustomerRepository cusRepository = new CustomerRepository();
+        Customer existingCustomer = cusRepository.getCustomer(cusId);
+
+        if (existingCustomer != null) {
+            // Prompt the user for confirmation
+            Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmAlert.setTitle("Confirm Deletion");
+            confirmAlert.setHeaderText(null);
+            confirmAlert.setContentText("Are you sure you want to delete this customer?");
+            Optional<ButtonType> result = confirmAlert.showAndWait();
+
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                // Perform the delete operation
+                boolean isDeleted = cusRepository.deleteCustomer(existingCustomer);
+                if (isDeleted) {
+                    System.out.println("Customer Deleted!");
+                    new Alert(Alert.AlertType.INFORMATION, "Customer has been deleted successfully").show();
+                } else {
+                    System.out.println("Customer Deletion Failed!");
+                    new Alert(Alert.AlertType.ERROR, "Customer deletion has failed").show();
+                }
+            }
+        } else {
+            System.out.println("Customer not found!");
+            new Alert(Alert.AlertType.WARNING, "Customer not found").show();
+        }
     }
+
 
     @FXML
     public void btnUpdate_OnAction(ActionEvent actionEvent) {
@@ -190,9 +220,4 @@ public class ManageCustomersFormController implements Initializable {
         address.setAddressLine2(addressline2);
         return address;
     }
-
-
-
-
-
 }

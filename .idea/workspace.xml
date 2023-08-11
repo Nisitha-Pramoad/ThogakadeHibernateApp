@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14ba99f2-d85c-4220-9ca4-dfe39f45eb75" name="Changes" comment="fix user input null value error">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="14ba99f2-d85c-4220-9ca4-dfe39f45eb75" name="Changes" comment="implement customer update function">
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageCustomersFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageCustomersFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/repository/CustomerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/repository/CustomerRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/view/manage-customers-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/manage-customers-form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +129,7 @@
       <workItem from="1691723933425" duration="6646000" />
       <workItem from="1691750619981" duration="1409000" />
       <workItem from="1691752313850" duration="7998000" />
-      <workItem from="1691766039060" duration="9126000" />
+      <workItem from="1691766039060" duration="9787000" />
     </task>
     <task id="LOCAL-00001" summary="add hibernate xml file and libraries">
       <created>1691760960831</created>
@@ -176,7 +173,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691770647056</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="implement customer update function">
+      <created>1691775900813</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1691775900813</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -200,7 +204,8 @@
     <MESSAGE value="implement CustomerRepository class" />
     <MESSAGE value="implement save customer function" />
     <MESSAGE value="fix user input null value error" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix user input null value error" />
+    <MESSAGE value="implement customer update function" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement customer update function" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
