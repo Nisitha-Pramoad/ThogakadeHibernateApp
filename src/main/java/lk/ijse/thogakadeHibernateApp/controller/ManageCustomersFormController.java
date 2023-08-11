@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -19,7 +20,6 @@ import java.net.URL;
 
 public class ManageCustomersFormController {
     public AnchorPane root;
-    public TextField txtcustomerId;
     public TextField txtCustomerFirstName;
     public TextField txtCustomerAddressLine1;
     public TextField txtCustomerMiddleName;
@@ -31,6 +31,7 @@ public class ManageCustomersFormController {
     public TableView tblCustomers;
     public ImageView imgHome;
     public TextField txtCustomerMobile;
+    public ComboBox mobileNumberType;
 
 
     public void initialize() {

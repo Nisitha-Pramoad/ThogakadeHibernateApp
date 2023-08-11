@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14ba99f2-d85c-4220-9ca4-dfe39f45eb75" name="Changes" comment="">
+    <list default="true" id="14ba99f2-d85c-4220-9ca4-dfe39f45eb75" name="Changes" comment="add hibernate xml file and libraries">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageCustomersFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageCustomersFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/view/manage-customers-form.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/view/manage-customers-form.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +48,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "E:/WorkZone/ThogakadeHibernateApp/src/main/java/lk/ijse/thogakadeHibernateApp/lib/required/txw2-2.3.1.jar",
+    "last_opened_file_path": "E:/WorkZone/ThogakadeHibernateApp/src/main/java/lk/ijse/thogakadeHibernateApp",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -65,6 +67,7 @@
       <recent name="E:\WorkZone\ThogakadeHibernateApp\src\main\resources" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\WorkZone\ThogakadeHibernateApp\src\main\resources" />
       <recent name="E:\WorkZone\ThogakadeHibernateApp\src\main\java" />
       <recent name="E:\WorkZone\ThogakadeHibernateApp\src\main\java\lk\ijse\thogakadeHibernateApp" />
       <recent name="E:\WorkZone\ThogakadeHibernateApp\src\main\resources\view" />
@@ -122,8 +125,16 @@
       <workItem from="1691495604849" duration="492000" />
       <workItem from="1691723933425" duration="6646000" />
       <workItem from="1691750619981" duration="1409000" />
-      <workItem from="1691752313850" duration="4911000" />
+      <workItem from="1691752313850" duration="5889000" />
     </task>
+    <task id="LOCAL-00001" summary="add hibernate xml file and libraries">
+      <created>1691760960831</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1691760960831</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -139,6 +150,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add hibernate xml file and libraries" />
+    <option name="LAST_COMMIT_MESSAGE" value="add hibernate xml file and libraries" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
