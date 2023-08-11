@@ -1,7 +1,8 @@
 package lk.ijse.thogakadeHibernateApp.config;
 
 import lk.ijse.thogakadeHibernateApp.entity.Customer;
-import lk.ijse.thogakadeHibernateApp.entity.Item; // Import the Item class
+import lk.ijse.thogakadeHibernateApp.entity.Item;
+import lk.ijse.thogakadeHibernateApp.entity.Order; // Import the Order class
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -15,7 +16,8 @@ public class SessionFactoryConfig {
         sessionFactory = new Configuration()
                 .configure()
                 .addAnnotatedClass(Customer.class)
-                .addAnnotatedClass(Item.class) // Add Item.class here
+                .addAnnotatedClass(Item.class)
+                .addAnnotatedClass(Order.class) // Add Order.class here
                 .buildSessionFactory();
     }
 

@@ -41,6 +41,16 @@ public class NameIdentifier {
         this.lastName = lastName;
     }
 
+    public String getFullName() {
+        // Combine the first name, middle name (if available), and last name
+        StringBuilder fullName = new StringBuilder(firstName);
+        if (middleName != null && !middleName.isEmpty()) {
+            fullName.append(" ").append(middleName);
+        }
+        fullName.append(" ").append(lastName);
+        return fullName.toString();
+    }
+
     @Override
     public String toString() {
         return "NameIdentifier{" +

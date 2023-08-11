@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14ba99f2-d85c-4220-9ca4-dfe39f45eb75" name="Changes" comment="implement customer delete function">
+    <list default="true" id="14ba99f2-d85c-4220-9ca4-dfe39f45eb75" name="Changes" comment="Implemented complete item functionality.">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/4585b2f1-5696-45c4-b2ce-4575e55bf687.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/4585b2f1-5696-45c4-b2ce-4575e55bf687.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/config/SessionFactoryConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/config/SessionFactoryConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageCustomersFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageCustomersFormController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageItemsFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/ManageItemsFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/PlaceOrderFormController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/controller/PlaceOrderFormController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/embedded/NameIdentifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/lk/ijse/thogakadeHibernateApp/embedded/NameIdentifier.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,7 +133,7 @@
       <workItem from="1691723933425" duration="6646000" />
       <workItem from="1691750619981" duration="1409000" />
       <workItem from="1691752313850" duration="7998000" />
-      <workItem from="1691766039060" duration="16957000" />
+      <workItem from="1691766039060" duration="25166000" />
     </task>
     <task id="LOCAL-00001" summary="add hibernate xml file and libraries">
       <created>1691760960831</created>
@@ -191,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691776526385</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Implemented complete item functionality.">
+      <created>1691784014059</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1691784014060</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,7 +224,8 @@
     <MESSAGE value="fix user input null value error" />
     <MESSAGE value="implement customer update function" />
     <MESSAGE value="implement customer delete function" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement customer delete function" />
+    <MESSAGE value="Implemented complete item functionality." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented complete item functionality." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
