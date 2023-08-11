@@ -6,6 +6,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -26,25 +27,39 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 
-public class ManageCustomersFormController {
+public class ManageCustomersFormController implements Initializable {
+    @FXML
     public AnchorPane root;
-    public static TextField txtCustomerFirstName;
-    public static TextField txtCustomerMiddleName;
-    public static TextField txtCustomerLastName;
-    public static TextField txtCustomerAddressLine1;
-    public static TextField txtCustomerAddressLine2;
+    @FXML
+    public TextField txtCustomerFirstName;
+    @FXML
+    public TextField txtCustomerMiddleName;
+    @FXML
+    public TextField txtCustomerLastName;
+    @FXML
+    public TextField txtCustomerAddressLine1;
+    @FXML
+    public TextField txtCustomerAddressLine2;
+    @FXML
     public Button btnsave;
+    @FXML
     public Button btnupdate;
+    @FXML
     public Button btndelete;
+    @FXML
     public TableView tblCustomers;
+    @FXML
     public ImageView imgHome;
-    public static TextField txtCustomerMobile;
-    public static ComboBox mobileNumberType;
+    @FXML
+    public TextField txtCustomerMobile;
+    @FXML
+    public ComboBox mobileNumberType;
 
-
-    public void initialize() {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
         ObservableList<String> mobileNoTypeList = FXCollections.observableArrayList(
                 "HOME",
                 "MOBILE"
@@ -64,7 +79,7 @@ public class ManageCustomersFormController {
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 
-
+    @FXML
     public void btnSave_OnAction(ActionEvent actionEvent) {
         Customer customer = getCustomer();
 
@@ -73,49 +88,66 @@ public class ManageCustomersFormController {
         System.out.println("Saved Cus Id: " + savedCusId);
     }
 
-
+    @FXML
     public void btnDelete_OnAction(ActionEvent actionEvent) {
 
     }
 
-
+    @FXML
     public void btnUpdate_OnAction(ActionEvent actionEvent) {
 
     }
 
-    private static Customer getCustomer() {
+    private Customer getCustomer() {
         Customer customer = new Customer();
         customer.setId(1);
+
         NameIdentifier nameIdentifier = getNameIdentifier();
         customer.setNameIdentifier(nameIdentifier);
 
+        Address cusaddress = getAddress();
+        customer.setCustomerAddress(cusaddress);
+
         List<MobileNo> mobileNos = getMobileNos();
         customer.setPhoneNos(mobileNos);
+
         return customer;
     }
 
-    private static List<MobileNo> getMobileNos() {
+    private List<MobileNo> getMobileNos() {
+        String cusMobileNo = txtCustomerMobile.getText();
+        String cusMobileType = mobileNumberType.getValue().toString();
+
         List<MobileNo> mobileNos = new ArrayList<>();
         MobileNo mobileNo = new MobileNo();
-        mobileNo.setType(String.valueOf(mobileNumberType));
-        mobileNo.setMobileNo(String.valueOf(txtCustomerMobile));
+        mobileNo.setType(cusMobileType);
+        mobileNo.setMobileNo(cusMobileNo);
         mobileNos.add(mobileNo);
 
         return mobileNos;
     }
 
-    private static NameIdentifier getNameIdentifier() {
+    private NameIdentifier getNameIdentifier() {
+        String firstName = txtCustomerFirstName.getText();
+        String middleName = txtCustomerMiddleName.getText();
+        String lastName = txtCustomerLastName.getText();
+
         NameIdentifier nameIdentifier = new NameIdentifier();
-        nameIdentifier.setFirstName(String.valueOf(txtCustomerFirstName));
-        nameIdentifier.setMiddleName(String.valueOf(txtCustomerMiddleName));
-        nameIdentifier.setLastName(String.valueOf(txtCustomerLastName));
+        nameIdentifier.setFirstName(firstName);
+        nameIdentifier.setMiddleName(middleName);
+        nameIdentifier.setLastName(lastName);
         return nameIdentifier;
     }
 
-    private static Address getAddress() {
+    private Address getAddress() {
+        String addressline1 = txtCustomerAddressLine1.getText();
+        String addressline2 = txtCustomerAddressLine2.getText();
+
         Address address = new Address();
-        address.setAddressLine1(String.valueOf(txtCustomerAddressLine1));
-        address.setAddressLine2(String.valueOf(txtCustomerAddressLine2));
+        address.setAddressLine1(addressline1);
+        address.setAddressLine2(addressline2);
         return address;
     }
+
+
 }
