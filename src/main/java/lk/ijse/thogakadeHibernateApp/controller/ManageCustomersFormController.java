@@ -94,6 +94,7 @@ public class ManageCustomersFormController implements Initializable {
 
         if (savedCusId) {
             new Alert(Alert.AlertType.INFORMATION, "Customer has been saved successfully").show();
+            clearFields();
         } else {
             new Alert(Alert.AlertType.ERROR, "Customer has not been saved successfully").show();
         }
@@ -121,6 +122,7 @@ public class ManageCustomersFormController implements Initializable {
                 if (isDeleted) {
                     System.out.println("Customer Deleted!");
                     new Alert(Alert.AlertType.INFORMATION, "Customer has been deleted successfully").show();
+                    clearFields();
                 } else {
                     System.out.println("Customer Deletion Failed!");
                     new Alert(Alert.AlertType.ERROR, "Customer deletion has failed").show();
@@ -159,6 +161,7 @@ public class ManageCustomersFormController implements Initializable {
             if (isUpdated) {
                 System.out.println("Customer Updated!");
                 new Alert(Alert.AlertType.INFORMATION, "Customer has been updated successfully").show();
+                clearFields();
             } else {
                 System.out.println("Customer Update Failed!");
                 new Alert(Alert.AlertType.ERROR, "Customer update has failed").show();
@@ -219,5 +222,16 @@ public class ManageCustomersFormController implements Initializable {
         address.setAddressLine1(addressline1);
         address.setAddressLine2(addressline2);
         return address;
+    }
+
+    private void clearFields() {
+        txtCustomerId.clear();
+        txtCustomerFirstName.clear();
+        txtCustomerMiddleName.clear();
+        txtCustomerLastName.clear();
+        txtCustomerAddressLine1.clear();
+        txtCustomerAddressLine2.clear();
+        txtCustomerMobile.clear();
+        mobileNumberType.getSelectionModel().clearSelection();
     }
 }

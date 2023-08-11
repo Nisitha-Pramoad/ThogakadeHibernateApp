@@ -1017,65 +1017,97 @@ sys|schema||mysql.sys|localhost|TRIGGER|G</Grants>
       <Engine>MyISAM</Engine>
       <CollationName>utf8mb4_0900_ai_ci</CollationName>
     </table>
-    <column id="298" parent="295" name="customer_id">
+    <table id="298" parent="288" name="item">
+      <Engine>InnoDB</Engine>
+      <CollationName>utf8mb4_0900_ai_ci</CollationName>
+    </table>
+    <column id="299" parent="295" name="customer_id">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="299" parent="295" name="AddressLine2">
+    <column id="300" parent="295" name="AddressLine2">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="300" parent="295" name="addressLine1">
+    <column id="301" parent="295" name="addressLine1">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
     </column>
-    <column id="301" parent="295" name="createdDateTime">
+    <column id="302" parent="295" name="createdDateTime">
       <DasType>datetime|0s</DasType>
       <Position>4</Position>
     </column>
-    <column id="302" parent="295" name="firstName">
+    <column id="303" parent="295" name="firstName">
       <DasType>varchar(255)|0s</DasType>
       <Position>5</Position>
     </column>
-    <column id="303" parent="295" name="lastName">
+    <column id="304" parent="295" name="lastName">
       <DasType>varchar(255)|0s</DasType>
       <Position>6</Position>
     </column>
-    <column id="304" parent="295" name="middleName">
+    <column id="305" parent="295" name="middleName">
       <DasType>varchar(255)|0s</DasType>
       <Position>7</Position>
     </column>
-    <index id="305" parent="295" name="PRIMARY">
+    <index id="306" parent="295" name="PRIMARY">
       <ColNames>customer_id</ColNames>
       <Type>btree</Type>
       <Unique>1</Unique>
     </index>
-    <key id="306" parent="295" name="PRIMARY">
+    <key id="307" parent="295" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <Primary>1</Primary>
       <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
     </key>
-    <column id="307" parent="296" name="customer_id">
+    <column id="308" parent="296" name="customer_id">
       <DasType>int|0s</DasType>
       <NotNull>1</NotNull>
       <Position>1</Position>
     </column>
-    <column id="308" parent="296" name="mobileNo">
+    <column id="309" parent="296" name="mobileNo">
       <DasType>varchar(255)|0s</DasType>
       <Position>2</Position>
     </column>
-    <column id="309" parent="296" name="type">
+    <column id="310" parent="296" name="type">
       <DasType>varchar(255)|0s</DasType>
       <Position>3</Position>
     </column>
-    <index id="310" parent="296" name="FKlcru9bt9lykhvq9ec0bbqeicc">
+    <index id="311" parent="296" name="FKlcru9bt9lykhvq9ec0bbqeicc">
       <ColNames>customer_id</ColNames>
       <Type>btree</Type>
     </index>
-    <column id="311" parent="297" name="next_val">
+    <column id="312" parent="297" name="next_val">
       <DasType>bigint|0s</DasType>
       <Position>1</Position>
     </column>
+    <column id="313" parent="298" name="item_code">
+      <AutoIncrement>1</AutoIncrement>
+      <DasType>int|0s</DasType>
+      <NotNull>1</NotNull>
+      <Position>1</Position>
+    </column>
+    <column id="314" parent="298" name="description">
+      <DasType>varchar(255)|0s</DasType>
+      <Position>2</Position>
+    </column>
+    <column id="315" parent="298" name="qty_on_hand">
+      <DasType>int|0s</DasType>
+      <Position>3</Position>
+    </column>
+    <column id="316" parent="298" name="unit_price">
+      <DasType>decimal(10,2 digit)|0s</DasType>
+      <Position>4</Position>
+    </column>
+    <index id="317" parent="298" name="PRIMARY">
+      <ColNames>item_code</ColNames>
+      <Type>btree</Type>
+      <Unique>1</Unique>
+    </index>
+    <key id="318" parent="298" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>PRIMARY</UnderlyingIndexName>
+    </key>
   </database-model>
 </dataSource>

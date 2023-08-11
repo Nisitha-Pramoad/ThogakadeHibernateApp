@@ -1,7 +1,5 @@
 package lk.ijse.thogakadeHibernateApp.controller;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXTextField;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,93 +7,120 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.TableView;
-import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.thogakadeHibernateApp.entity.Item;
+import lk.ijse.thogakadeHibernateApp.repository.ItemRepository;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 import java.io.IOException;
-import java.math.BigDecimal;
 import java.net.URL;
-import java.sql.SQLException;
-import java.util.ArrayList;
-
+import java.util.Optional;
 
 public class ManageItemsFormController {
-    public AnchorPane root;
-    public JFXTextField txtCode;
-    public JFXTextField txtDescription;
-    public JFXTextField txtQtyOnHand;
-    public JFXButton btnDelete;
-    public JFXButton btnSave;
-    public TableView tblItems;
-    public JFXTextField txtUnitPrice;
-    public JFXButton btnAddNewItem;
+    public Button btnsave;
+    public Button btnupdate;
+    public Button btndelete;
+    @FXML
+    private ImageView imgHome;
 
+    @FXML
+    private TextField txtItemCode;
 
-    public void initialize() {
-        /*tblItems.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("code"));
-        tblItems.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("description"));
-        tblItems.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("qtyOnHand"));
-        tblItems.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
+    @FXML
+    private TextField txtItemDescription;
 
-        initUI();
+    @FXML
+    private TextField txtQtyOnHand;
 
-        tblItems.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
-            btnDelete.setDisable(newValue == null);
-            btnSave.setText(newValue != null ? "Update" : "Save");
-            btnSave.setDisable(newValue == null);
+    @FXML
+    private TextField txtunitPrice;
 
-            if (newValue != null) {
-                txtCode.setText(newValue.getCode());
-                txtDescription.setText(newValue.getDescription());
-                txtUnitPrice.setText(newValue.getUnitPrice().setScale(2).toString());
-                txtQtyOnHand.setText(newValue.getQtyOnHand() + "");
+    @FXML
+    private AnchorPane root;
 
-                txtCode.setDisable(false);
-                txtDescription.setDisable(false);
-                txtUnitPrice.setDisable(false);
-                txtQtyOnHand.setDisable(false);
-            }
-        });
+    @FXML
+    void btnItemSave_OnAction(ActionEvent event) {
+        Item item = getItem();
 
-        txtQtyOnHand.setOnAction(event -> btnSave.fire());
-        loadAllItems();*/
-    }
+        ItemRepository itemRepository = new ItemRepository();
+        boolean savedItem = itemRepository.saveItem(item);
 
-    private void loadAllItems() {
-        /*tblItems.getItems().clear();
-        try {
-            *//*Get all items*//*
-            ArrayList<ItemDTO> allItems = itemBO.getAllItems();
-            for (ItemDTO i : allItems) {
-                tblItems.getItems().add(new ItemTM(i.getCode(), i.getDescription(), i.getUnitPrice(), i.getQtyOnHand()));
-            }
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }*/
-    }
-
-    private void initUI() {
-        txtCode.clear();
-        txtDescription.clear();
-        txtUnitPrice.clear();
-        txtQtyOnHand.clear();
-        txtCode.setDisable(true);
-        txtDescription.setDisable(true);
-        txtUnitPrice.setDisable(true);
-        txtQtyOnHand.setDisable(true);
-        txtCode.setEditable(false);
-        btnSave.setDisable(true);
-        btnDelete.setDisable(true);
+        if (savedItem) {
+            new Alert(Alert.AlertType.INFORMATION, "Item has been saved successfully").show();
+            clearFields();
+        } else {
+            new Alert(Alert.AlertType.ERROR, "Item could not be saved.").show();
+        }
     }
 
     @FXML
-    private void navigateToHome(MouseEvent event) throws IOException {
-        URL resource = this.getClass().getResource("/lk/ijse/pos/view/main-form.fxml");
+    void btnItemUpdate_OnAction(ActionEvent event) {
+        int itemCode = Integer.parseInt(txtItemCode.getText());
+
+        // Get the existing item from the database
+        ItemRepository itemRepository = new ItemRepository();
+        Item existingItem = itemRepository.getItem(itemCode);
+
+        if (existingItem != null) {
+            // Update the item properties
+            existingItem.setDescription(txtItemDescription.getText());
+            existingItem.setQtyOnHand(Integer.parseInt(txtQtyOnHand.getText()));
+            existingItem.setUnitPrice(Double.parseDouble(txtunitPrice.getText()));
+
+            // Perform the update operation
+            boolean isUpdated = itemRepository.updateItem(existingItem);
+            if (isUpdated) {
+                new Alert(Alert.AlertType.INFORMATION, "Item has been Updated successfully").show();
+                clearFields();
+            } else {
+                new Alert(Alert.AlertType.ERROR, "Item could not be updated.").show();
+            }
+        } else {
+            // Show warning alert: Item not found
+        }
+    }
+
+    @FXML
+    void btnItemDelete_OnAction(ActionEvent event) {
+        int itemCode = Integer.parseInt(txtItemCode.getText());
+
+        // Get the existing item from the database
+        ItemRepository itemRepository = new ItemRepository();
+        Item existingItem = itemRepository.getItem(itemCode);
+
+        if (existingItem != null) {
+            // Prompt the user for confirmation
+            Alert confirmAlert = new Alert(Alert.AlertType.CONFIRMATION);
+            confirmAlert.setTitle("Confirm Deletion");
+            confirmAlert.setHeaderText(null);
+            confirmAlert.setContentText("Are you sure you want to delete this item?");
+            Optional<ButtonType> result = confirmAlert.showAndWait();
+
+            if (result.isPresent() && result.get() == ButtonType.OK) {
+                // Perform the delete operation
+                boolean isDeleted = itemRepository.deleteItem(existingItem);
+                if (isDeleted) {
+                    new Alert(Alert.AlertType.INFORMATION, "Item has been deleted successfully").show();
+                    clearFields();
+                } else {
+                    new Alert(Alert.AlertType.ERROR, "Item could not be deleted.").show();
+                }
+            }
+        } else {
+            new Alert(Alert.AlertType.WARNING, "Item not found").show();
+        }
+    }
+
+    @FXML
+    void navigateToHome(MouseEvent event) throws IOException {
+        URL resource = this.getClass().getResource("/view/main-form.fxml");
         Parent root = FXMLLoader.load(resource);
         Scene scene = new Scene(root);
         Stage primaryStage = (Stage) (this.root.getScene().getWindow());
@@ -104,116 +129,22 @@ public class ManageItemsFormController {
         Platform.runLater(() -> primaryStage.sizeToScene());
     }
 
-    public void btnAddNew_OnAction(ActionEvent actionEvent) {
-        txtCode.setDisable(false);
-        txtDescription.setDisable(false);
-        txtUnitPrice.setDisable(false);
-        txtQtyOnHand.setDisable(false);
-        txtCode.clear();
-        //txtCode.setText(generateNewId());
-        txtDescription.clear();
-        txtUnitPrice.clear();
+    private Item getItem() {
+        Item item = new Item();
+        item.setDescription(txtItemDescription.getText());
+        item.setQtyOnHand(Integer.parseInt(txtQtyOnHand.getText()));
+        item.setUnitPrice(Double.parseDouble(txtunitPrice.getText()));
+        return item;
+    }
+
+    @FXML
+    private void clearFields() {
+        txtItemCode.clear();
+        txtItemDescription.clear();
         txtQtyOnHand.clear();
-        txtDescription.requestFocus();
-        btnSave.setDisable(false);
-        btnSave.setText("Save");
-        tblItems.getSelectionModel().clearSelection();
-    }
-
-    public void btnDelete_OnAction(ActionEvent actionEvent) {
-        /*Delete Item*//*
-        String code = tblItems.getSelectionModel().getSelectedItem().getCode();
-        try {
-            if (!existItem(code)) {
-                new Alert(Alert.AlertType.ERROR, "There is no such item associated with the id " + code).show();
-            }
-            itemBO.deleteItem(code);
-            tblItems.getItems().remove(tblItems.getSelectionModel().getSelectedItem());
-            tblItems.getSelectionModel().clearSelection();
-            initUI();
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, "Failed to delete the item " + code).show();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }*/
-    }
-
-    public void btnSave_OnAction(ActionEvent actionEvent) {
-        /*String code = txtCode.getText();
-        String description = txtDescription.getText();
-
-        if (!description.matches("[A-Za-z0-9 ]+")) {
-            new Alert(Alert.AlertType.ERROR, "Invalid description").show();
-            txtDescription.requestFocus();
-            return;
-        } else if (!txtUnitPrice.getText().matches("^[0-9]+[.]?[0-9]*$")) {
-            new Alert(Alert.AlertType.ERROR, "Invalid unit price").show();
-            txtUnitPrice.requestFocus();
-            return;
-        } else if (!txtQtyOnHand.getText().matches("^\\d+$")) {
-            new Alert(Alert.AlertType.ERROR, "Invalid qty on hand").show();
-            txtQtyOnHand.requestFocus();
-            return;
-        }
-
-        int qtyOnHand = Integer.parseInt(txtQtyOnHand.getText());
-        BigDecimal unitPrice = new BigDecimal(txtUnitPrice.getText()).setScale(2);
-
-
-        if (btnSave.getText().equalsIgnoreCase("save")) {
-            try {
-                if (existItem(code)) {
-                    new Alert(Alert.AlertType.ERROR, code + " already exists").show();
-                }
-                //Save Item
-                itemBO.saveItem(new ItemDTO(code, description, unitPrice, qtyOnHand));
-
-                tblItems.getItems().add(new ItemTM(code, description, unitPrice, qtyOnHand));
-
-            } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        } else {
-            try {
-
-                if (!existItem(code)) {
-                    new Alert(Alert.AlertType.ERROR, "There is no such item associated with the id " + code).show();
-                }
-                *//*Update Item*//*
-                itemBO.updateItem(new ItemDTO(code, description, unitPrice, qtyOnHand));
-
-                ItemTM selectedItem = tblItems.getSelectionModel().getSelectedItem();
-                selectedItem.setDescription(description);
-                selectedItem.setQtyOnHand(qtyOnHand);
-                selectedItem.setUnitPrice(unitPrice);
-                tblItems.refresh();
-            } catch (SQLException e) {
-                new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            }
-        }
-
-        btnAddNewItem.fire();*/
+        txtunitPrice.clear();
     }
 
 
-    /*private boolean existItem(String code) throws SQLException, ClassNotFoundException {
-        return itemBO.existItemByCode(code);
-    }
 
-
-    private String generateNewId() {
-        try {
-
-            return itemBO.generateNewItemCode();
-        } catch (SQLException e) {
-            new Alert(Alert.AlertType.ERROR, e.getMessage()).show();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-        return "I00-001";
-    }*/
 }
