@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="14ba99f2-d85c-4220-9ca4-dfe39f45eb75" name="Changes" comment="implement session facotry embedded class" />
+    <list default="true" id="14ba99f2-d85c-4220-9ca4-dfe39f45eb75" name="Changes" comment="implement address embedded class" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -121,7 +121,7 @@
       <workItem from="1691495604849" duration="492000" />
       <workItem from="1691723933425" duration="6646000" />
       <workItem from="1691750619981" duration="1409000" />
-      <workItem from="1691752313850" duration="6247000" />
+      <workItem from="1691752313850" duration="6563000" />
     </task>
     <task id="LOCAL-00001" summary="add hibernate xml file and libraries">
       <created>1691760960831</created>
@@ -137,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1691761923779</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="implement address embedded class">
+      <created>1691762290992</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1691762290992</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -157,7 +164,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add hibernate xml file and libraries" />
     <MESSAGE value="implement session facotry embedded class" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement session facotry embedded class" />
+    <MESSAGE value="implement address embedded class" />
+    <option name="LAST_COMMIT_MESSAGE" value="implement address embedded class" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
